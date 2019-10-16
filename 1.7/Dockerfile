@@ -1,6 +1,6 @@
 # vim:set ft=dockerfile:
 
-FROM cimg/%%PARENT%%:2019.10
+FROM cimg/base:2019.10
 
 LABEL maintainer="CircleCI Community & Partner Engineering Team <community-partner@circleci.com>"
 
@@ -20,7 +20,7 @@ RUN locale-gen en_US.UTF-8
 ENV LANG=en_US.UTF-8 LANGUAGE=en_US:en LC_ALL=en_US.UTF-8
 
 # Install Erlang via Erlang Solutions' .deb
-ENV ELIXIR_VERSION=%%MAIN_VERSION%%
+ENV ELIXIR_VERSION=1.7.4
 RUN elixirDEB="https://packages.erlang-solutions.com/erlang/debian/pool/elixir_${ELIXIR_VERSION}-1~ubuntu~bionic_amd64.deb" && \
 	curl -sSL -o elixir.deb $elixirDEB && \
 	dpkg -i elixir.deb && \
