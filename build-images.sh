@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-docker build --file 1.7/Dockerfile -t cimg/elixir:1.7.4  -t cimg/elixir:1.7 .
+docker build --file 1.8/Dockerfile -t cimg/elixir:1.8.0  -t cimg/elixir:1.8 .
