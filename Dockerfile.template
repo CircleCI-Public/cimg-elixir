@@ -1,6 +1,6 @@
 # vim:set ft=dockerfile:
 
-FROM cimg/%%PARENT%%:2019.10
+FROM cimg/%%PARENT%%:2019.11
 
 LABEL maintainer="CircleCI Community & Partner Engineering Team <community-partner@circleci.com>"
 
@@ -14,10 +14,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 	curl -sSL -o erlang.deb $erlangDEB && \
 	dpkg -i erlang.deb && \
 	rm -rf erlang.deb /var/lib/apt/lists/*
-
-# Generate & set locale
-RUN locale-gen en_US.UTF-8
-ENV LANG=en_US.UTF-8 LANGUAGE=en_US:en LC_ALL=en_US.UTF-8
 
 # Install Erlang via Erlang Solutions' .deb
 ENV ELIXIR_VERSION=%%MAIN_VERSION%%
