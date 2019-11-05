@@ -20,7 +20,7 @@ RUN locale-gen en_US.UTF-8
 ENV LANG=en_US.UTF-8 LANGUAGE=en_US:en LC_ALL=en_US.UTF-8
 
 # Install Erlang via Erlang Solutions' .deb
-ENV ELIXIR_VERSION=1.9.2
+ENV ELIXIR_VERSION=1.9.3
 RUN elixirDEB="https://packages.erlang-solutions.com/erlang/debian/pool/elixir_${ELIXIR_VERSION}-1~ubuntu~bionic_all.deb" && \
 	curl -sSL -o elixir.deb $elixirDEB && \
 	dpkg -i elixir.deb && \
