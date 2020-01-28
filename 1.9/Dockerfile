@@ -16,7 +16,7 @@ RUN sudo apt-get update && sudo apt-get install -y --no-install-recommends \
 	sudo rm -rf erlang.deb /var/lib/apt/lists/*
 
 # Install Erlang via Erlang Solutions' .deb
-ENV ELIXIR_VERSION=1.9.3
+ENV ELIXIR_VERSION=1.9.4
 RUN elixirDEB="https://packages.erlang-solutions.com/erlang/debian/pool/elixir_${ELIXIR_VERSION}-1~ubuntu~bionic_all.deb" && \
 	curl -sSL -o elixir.deb $elixirDEB && \
 	sudo dpkg -i elixir.deb && \
