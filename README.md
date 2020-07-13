@@ -1,8 +1,8 @@
 <div align="center">
 	<p>
-		<img alt="CircleCI Logo" src="img/circle-circleci.svg" width="75" />
-		<img alt="Docker Logo" src="img/circle-docker.svg" width="75" />
-		<img alt="Elixir Logo" src="img/circle-elixir.png" width="75" />
+		<img alt="CircleCI Logo" src="https://raw.github.com/CircleCI-Public/cimg-go/master/img/ci|img/circle-circleci.svg?sanitize=true" width="75" />
+		<img alt="Docker Logo" src="https://raw.github.com/CircleCI-Public/cimg-go/master/img/ci|img/circle-docker.svg?sanitize=true" width="75" />
+		<img alt="Elixir Logo" src="https://raw.github.com/CircleCI-Public/cimg-go/master/img/ci|img/circle-elixir.png?sanitize=true" width="75" />
 	</p>
 	<h1>CircleCI Convenience Images => Elixir</h1>
 	<h3>A Continous Integration focused Elixir Docker image built to run on CircleCI</h3>
@@ -10,10 +10,10 @@
 
 [![CircleCI Build Status](https://circleci.com/gh/CircleCI-Public/cimg-elixir.svg?style=shield)](https://circleci.com/gh/CircleCI-Public/cimg-elixir) [![Software License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/CircleCI-Public/cimg-elixir/master/LICENSE) [![Docker Pulls](https://img.shields.io/docker/pulls/cimg/elixir)](https://hub.docker.com/r/cimg/elixir) [![CircleCI Community](https://img.shields.io/badge/community-CircleCI%20Discuss-343434.svg)](https://discuss.circleci.com/c/ecosystem/circleci-images)
 
-***This image is in alpha and is designed to supercede the original CircleCI Elixir image, `circleci/elixir`.***
+***This image is designed to supercede the legacy CircleCI Elixir image, `circleci/elixir`.***
 
 `cimg/elixir` is a Docker image created by CircleCI with continuous integration builds in mind.
-Each tag contains a complete elixir installation for use with mix and hex.
+Each tag contains a complete Elixir installation for use with mix and hex.
 
 
 ## Table of Contents
@@ -34,7 +34,7 @@ For example:
 jobs:
   build:
     docker:
-      - image: cimg/elixir:1.7
+      - image: cimg/elixir:1.9
     steps:
       - checkout
       - run: mix --version
@@ -43,18 +43,20 @@ jobs:
 ```
 
 In the above example, the CircleCI Elixir Docker image is used as the primary container.
-More specifically, the tag `1.7` is used meaning the version of elixir will be v1.7.
+More specifically, the tag `1.9` is used meaning the version of elixir will be v1.9.
 You can now use `mix` within the steps for this job.
 
 
 ## How This Image Works
 
-This image contains both erlang and elixir installed. The version of erlang is the same across the different versions of elixir.
+This image contains both Elixir as well as a supported version of Erlang.
 
 ### Variants
 
-This image currently has no varaints.
+This image has a Node.js variant.
 Variant images typically contain the same base software, but with a few additional modifications.
+The Node.js variant is the same Elixir image but with Node.js also installed.
+The Node.js variant can be used by appending `-node` to the end of an existing `cimg/elixir` tag.
 
 ### Tagging Scheme
 
@@ -64,12 +66,13 @@ This image has the following tagging scheme:
 cimg/elixir:<elixir-version>[-variant]
 ```
 
-`<elixir-version>` - The version of elixir to use.
+`<elixir-version>` - The version of Elixir to use.
 This can be a full SemVer point release (such as `1.10.2`) or just the minor release (such as `1.10`).
-If you use the minor release tag, it will automatically point to future patch updates as they are released by the elixir project.
+If you use the minor release tag, it will automatically point to future patch updates as they are released by the Elixir project.
 For example, the tag `1.10` points to elixir 1.10.2 now, but when the next release comes out, it will point to 1.10.3.
 
-`[-variant]` - Variant tags, if available, can optionally be used. Currently, there are no variants.
+`[-variant]` - Variant tags, if available, can optionally be used.
+For example, the Node.js variant can be used like this: `cimg/elixir:1.10.1-node`.
 
 ## Development
 
