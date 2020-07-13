@@ -2,4 +2,4 @@
 
 repository=elixir
 parent=base
-variants=()
+variants=(node)
