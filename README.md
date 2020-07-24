@@ -53,10 +53,24 @@ This image contains both Elixir as well as a supported version of Erlang.
 
 ### Variants
 
-This image has a Node.js variant.
 Variant images typically contain the same base software, but with a few additional modifications.
+
+#### Node.js
+
 The Node.js variant is the same Elixir image but with Node.js also installed.
 The Node.js variant can be used by appending `-node` to the end of an existing `cimg/elixir` tag.
+
+```yaml
+jobs:
+  build:
+    docker:
+      - image: cimg/elixir:1.9-node
+    steps:
+      - checkout
+      - run: mix --version
+      - run: node --version
+```
+
 
 ### Tagging Scheme
 
