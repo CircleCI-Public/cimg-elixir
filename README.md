@@ -64,7 +64,7 @@ The Node.js variant can be used by appending `-node` to the end of an existing `
 jobs:
   build:
     docker:
-      - image: cimg/elixir:1.9-node
+      - image: cimg/elixir:1.11-node
     steps:
       - checkout
       - run: mix --version
@@ -86,7 +86,7 @@ orbs:
 jobs:
   build:
     docker:
-      - image: cimg/elixir:1.9-browsers
+      - image: cimg/elixir:1.11-browsers
     steps:
       - browser-tools/install-browsers
       - checkout
