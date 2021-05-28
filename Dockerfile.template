@@ -5,7 +5,7 @@ FROM cimg/%%PARENT%%:2021.04
 LABEL maintainer="Community & Partner Engineering Team <community-partner@circleci.com>"
 
 # Install Erlang via Erlang Solutions' .deb
-ENV ERLANG_VERSION="23.1"
+ENV ERLANG_VERSION="24.0"
 RUN sudo apt-get update && sudo apt-get install -y --no-install-recommends \
 		libncurses5 \
 		libodbc1 \
