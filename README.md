@@ -2,7 +2,7 @@
 	<p>
 		<img alt="CircleCI Logo" src="https://raw.github.com/CircleCI-Public/cimg-elixir/master/img/circle-circleci.svg?sanitize=true" width="75" />
 		<img alt="Docker Logo" src="https://raw.github.com/CircleCI-Public/cimg-elixir/master/img/circle-docker.svg?sanitize=true" width="75" />
-		<img alt="Elixir Logo" src="https://raw.github.com/CircleCI-Public/cimg-elixir/master/img/circle-elixir.png?sanitize=true" width="75" />
+		<img alt="Elixir Logo" src="https://raw.github.com/CircleCI-Public/cimg-elixir/master/img/circle-elixir.svg?sanitize=true" width="75" />
 	</p>
 	<h1>CircleCI Convenience Images => Elixir</h1>
 	<h3>A Continous Integration focused Elixir Docker image built to run on CircleCI</h3>
