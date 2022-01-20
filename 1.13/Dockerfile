@@ -1,11 +1,11 @@
 # vim:set ft=dockerfile:
 
-FROM cimg/base:2021.07
+FROM cimg/base:2022.01
 
 LABEL maintainer="Community & Partner Engineering Team <community-partner@circleci.com>"
 
 # Install Erlang via Erlang Solutions' .deb
-ENV ERLANG_VERSION="24.0.5"
+ENV ERLANG_VERSION="24.2"
 RUN sudo apt-get update && sudo apt-get install -y --no-install-recommends \
 		libncurses5 \
 		libodbc1 \
@@ -17,7 +17,7 @@ RUN sudo apt-get update && sudo apt-get install -y --no-install-recommends \
 	sudo rm -rf erlang.deb /var/lib/apt/lists/*
 
 # Install Elixir via Erlang Solutions' .deb
-ENV ELIXIR_VERSION=1.13.1
+ENV ELIXIR_VERSION=1.13.2
 RUN ELIXIR_DOWNLOAD_URL="https://github.com/elixir-lang/elixir/archive/v${ELIXIR_VERSION}.tar.gz" && \
 	curl -fSL -o elixir-src.tar.gz $ELIXIR_DOWNLOAD_URL && \
 	sudo mkdir -p /usr/local/src/elixir && \
