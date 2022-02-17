@@ -3,3 +3,4 @@
 repository=elixir
 parent=base
 variants=(node browsers)
+namespace=cimg

@@ -8,7 +8,7 @@
 	<h3>A Continous Integration focused Elixir Docker image built to run on CircleCI</h3>
 </div>
 
-[![CircleCI Build Status](https://circleci.com/gh/CircleCI-Public/cimg-elixir.svg?style=shield)](https://circleci.com/gh/CircleCI-Public/cimg-elixir) [![Software License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/CircleCI-Public/cimg-elixir/master/LICENSE) [![Docker Pulls](https://img.shields.io/docker/pulls/cimg/elixir)](https://hub.docker.com/r/cimg/elixir) [![CircleCI Community](https://img.shields.io/badge/community-CircleCI%20Discuss-343434.svg)](https://discuss.circleci.com/c/ecosystem/circleci-images)
+[![CircleCI Build Status](https://circleci.com/gh/CircleCI-Public/cimg-elixir.svg?style=shield)](https://circleci.com/gh/CircleCI-Public/cimg-elixir) [![Software License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/CircleCI-Public/cimg-elixir/master/LICENSE) [![Docker Pulls](https://img.shields.io/docker/pulls/cimg/elixir)](https://hub.docker.com/r/cimg/elixir) [![CircleCI Community](https://img.shields.io/badge/community-CircleCI%20Discuss-343434.svg)](https://discuss.circleci.com/c/ecosystem/circleci-images) [![Repository](https://img.shields.io/badge/github-README-brightgreen)](https://github.com/CircleCI-Public/cimg-elixir)
 
 ***This image is designed to supercede the legacy CircleCI Elixir image, `circleci/elixir`.***
 
