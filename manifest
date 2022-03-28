@@ -4,3 +4,6 @@ repository=elixir
 parent=base
 variants=(node browsers)
 namespace=cimg
+parentTags=(20.3 21.3 22.3 23.3 24.3)
+defaultParentTag=24.3
+parentSlug=erlang
