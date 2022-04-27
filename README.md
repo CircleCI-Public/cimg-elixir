@@ -105,7 +105,7 @@ jobs:
 This image has the following tagging scheme:
 
 ```
-cimg/elixir:<elixir-version>-<erlang-version>[-variant]
+cimg/elixir:<elixir-version>[-erlang-version][-variant]
 ```
 
 `<elixir-version>` - The version of Elixir to use.
