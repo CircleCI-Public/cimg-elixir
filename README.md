@@ -51,6 +51,11 @@ You can now use `mix` within the steps for this job.
 
 This image contains both Elixir as well as a supported version of Erlang.
 
+### Parent Tags and Parent Slugs
+
+Parent Tags introduce the ability to choose a specific version to include in the tag. In conjunction with
+the Parent Slug, Elixir now supports choosing which Erlang version to use and looks like: `parentSlug-parentTag`, which would translate to `erlang-22.3` 
+
 ### Variants
 
 Variant images typically contain the same base software, but with a few additional modifications.
@@ -100,13 +105,17 @@ jobs:
 This image has the following tagging scheme:
 
 ```
-cimg/elixir:<elixir-version>[-variant]
+cimg/elixir:<elixir-version>[-erlang-version][-variant]
 ```
 
 `<elixir-version>` - The version of Elixir to use.
 This can be a full SemVer point release (such as `1.10.2`) or just the minor release (such as `1.10`).
 If you use the minor release tag, it will automatically point to future patch updates as they are released by the Elixir project.
 For example, the tag `1.10` points to elixir 1.10.2 now, but when the next release comes out, it will point to 1.10.3.
+
+`<erlang-version>` - This specifies the erlang version to use in accordance with the [compatibility chart](https://hexdocs.pm/elixir/1.13.4/compatibility-and-deprecations.html). Note: the default image tag:
+`cimg/elixir:<elixir-version>[-variant]` will utilize the latest version e.g 24.3
+
 
 `[-variant]` - Variant tags, if available, can optionally be used.
 For example, the Node.js variant can be used like this: `cimg/elixir:1.10.1-node`.
@@ -154,14 +163,24 @@ For example, to generate the Dockerfile for elixir v1.10.2, you would run the fo
 ./shared/gen-dockerfiles.sh 1.10.2
 ```
 
-The generated Dockerfile will be located at `./1.10/Dockefile`.
-To build this image locally and try it out, you can run the following:
+The generated Dockerfile will be located at `./1.10/<parent-tag>/Dockefile` in addition to their corresponding variants located at `./1.10/<parent-tag>/<variant>/Dockefile`
+
+To build this image locally and try it out, you can run the following (assuming a 23.3 erlang version):
 
 ```bash
 cd 1.10
+docker build -t test/elixir:1.10.2-erlang-23.3 .
+docker run -it test/elixir:1.10.2-erlang-23.3 bash
+```
+If using the default version (latest), you could run either of the following:
+```bash
 docker build -t test/elixir:1.10.2 .
 docker run -it test/elixir:1.10.2 bash
+
+docker build -t test/elixir:1.10.2-erlang-24.3 .
+docker run -it test/elixir:1.10.2-erlang-24.3 bash
 ```
+
 
 ### Building the Dockerfiles
 
