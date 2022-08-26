@@ -10,6 +10,6 @@ docker build --file 1.13/23.3/browsers/Dockerfile -t cimg/elixir:1.13.4-erlang-2
 docker build --file 1.13/24.3/Dockerfile -t cimg/elixir:1.13.4-erlang-24.3 -t cimg/elixir:1.13-erlang-24.3 .
 docker build --file 1.13/24.3/node/Dockerfile -t cimg/elixir:1.13.4-erlang-24.3-node -t cimg/elixir:1.13-erlang-24.3-node .
 docker build --file 1.13/24.3/browsers/Dockerfile -t cimg/elixir:1.13.4-erlang-24.3-browsers -t cimg/elixir:1.13-erlang-24.3-browsers .
-docker build --file 1.13/25.0.3/Dockerfile -t cimg/elixir:1.13.4-erlang-25.0.3 -t cimg/elixir:1.13-erlang-25.0.3 .
-docker build --file 1.13/25.0.3/node/Dockerfile -t cimg/elixir:1.13.4-erlang-25.0.3-node -t cimg/elixir:1.13-erlang-25.0.3-node .
-docker build --file 1.13/25.0.3/browsers/Dockerfile -t cimg/elixir:1.13.4-erlang-25.0.3-browsers -t cimg/elixir:1.13-erlang-25.0.3-browsers .
+docker build --file 1.13/25.0.4/Dockerfile -t cimg/elixir:1.13.4-erlang-25.0.4 -t cimg/elixir:1.13-erlang-25.0.4 .
+docker build --file 1.13/25.0.4/node/Dockerfile -t cimg/elixir:1.13.4-erlang-25.0.4-node -t cimg/elixir:1.13-erlang-25.0.4-node .
+docker build --file 1.13/25.0.4/browsers/Dockerfile -t cimg/elixir:1.13.4-erlang-25.0.4-browsers -t cimg/elixir:1.13-erlang-25.0.4-browsers .
