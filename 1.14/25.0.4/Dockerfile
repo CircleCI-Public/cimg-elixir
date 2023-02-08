@@ -2,10 +2,13 @@
 
 # Do not edit individual Dockerfiles manually. Instead, please make changes to the Dockerfile.template, which will be used by the build script to generate Dockerfiles.
 
-# By policy, the base image tag should be a quarterly tag unless there's a 
-# specific reason to use a different one. This means January, April, July, or 
+# By policy, the base image tag should be a quarterly tag unless there's a
+# specific reason to use a different one. This means January, April, July, or
 # October.
-FROM cimg/base:2022.10-20.04
+
+# Erlang version 23.3 does not support OpenSSL3, which means only for this specific version do we need to use 20.04. Please adjust accordingly
+
+FROM cimg/base:2023.01-20.04
 
 LABEL maintainer="Community & Partner Engineering Team <community-partner@circleci.com>"
 
@@ -22,7 +25,7 @@ RUN sudo apt-get update && sudo apt-get install -y --no-install-recommends \
 	sudo rm -rf erlang.deb /var/lib/apt/lists/*
 
 # Install Elixir via Erlang Solutions' .deb
-ENV ELIXIR_VERSION=1.14.2
+ENV ELIXIR_VERSION=1.14.3
 RUN ELIXIR_DOWNLOAD_URL="https://github.com/elixir-lang/elixir/archive/v${ELIXIR_VERSION}.tar.gz" && \
 	curl -fSL -o elixir-src.tar.gz $ELIXIR_DOWNLOAD_URL && \
 	sudo mkdir -p /usr/local/src/elixir && \
