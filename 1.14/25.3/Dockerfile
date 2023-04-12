@@ -13,7 +13,7 @@ FROM cimg/base:2023.04-20.04
 LABEL maintainer="Community & Partner Engineering Team <community-partner@circleci.com>"
 
 # Install Erlang via Erlang Solutions' .deb
-ENV ERLANG_VERSION="23.3.1"
+ENV ERLANG_VERSION="25.3"
 RUN sudo apt-get update && sudo apt-get install -y --no-install-recommends \
 		libncurses5 \
 		libodbc1 \

@@ -8,7 +8,7 @@
 
 # Erlang version 23.3 does not support OpenSSL3, which means only for this specific version do we need to use 20.04. Please adjust accordingly
 
-FROM cimg/base:2023.01-20.04
+FROM cimg/base:2023.04-20.04
 
 LABEL maintainer="Community & Partner Engineering Team <community-partner@circleci.com>"
 
@@ -25,7 +25,7 @@ RUN sudo apt-get update && sudo apt-get install -y --no-install-recommends \
 	sudo rm -rf erlang.deb /var/lib/apt/lists/*
 
 # Install Elixir via Erlang Solutions' .deb
-ENV ELIXIR_VERSION=1.14.3
+ENV ELIXIR_VERSION=1.14.4
 RUN ELIXIR_DOWNLOAD_URL="https://github.com/elixir-lang/elixir/archive/v${ELIXIR_VERSION}.tar.gz" && \
 	curl -fSL -o elixir-src.tar.gz $ELIXIR_DOWNLOAD_URL && \
 	sudo mkdir -p /usr/local/src/elixir && \
