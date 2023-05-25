@@ -1,6 +1,6 @@
 # vim:set ft=dockerfile:
 
-FROM cimg/elixir:1.14.4-erlang-23.3.1-node
+FROM cimg/elixir:1.14.5-erlang-23.3.1-node
 
 LABEL maintainer="CircleCI Community & Partner Engineering Team <community-partner@circleci.com>"
 
