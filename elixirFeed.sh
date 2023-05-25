@@ -21,13 +21,18 @@ getElixirVersion() {
   # with multiple mainline versions like node e.g 16, 18, 19, therefore, we are a bit more
   # confident knowing that the latest version will be the first version parsed
 
-  generateVersions "$(echo "$VERSIONS" | head -1 | cut -d 'v' -f2)"
-  generateSearchTerms "ELIXIR_VERSION=" "$majorMinor/${parentTags[2]}/Dockerfile"
-  directoryCheck "$majorMinor" "$SEARCH_TERM"
+  for version in $VERSIONS; do
+    if [[ $version =~ ^v[0-9]+(\.[0-9]+)*$ ]]; then
+      generateVersions "$(cut -d 'v' -f2 <<< "${version}")"
+      echo $newVersions hi
+      generateSearchTerms "ELIXIR_VERSION=" "$majorMinor/${parentTags[2]}/Dockerfile"
+      directoryCheck "$majorMinor" "$SEARCH_TERM"
 
-  if [[ $(eval echo $?) == 0 ]]; then
-    generateVersionString "$newVersion"
-  fi
+      if [[ $(eval echo $?) == 0 ]]; then
+        generateVersionString "$newVersion"
+      fi
+    fi
+  done
 }
 
 getElixirVersion
@@ -35,7 +40,7 @@ getElixirVersion
 if [ -n "${vers[*]}" ]; then
   echo "Included version updates: ${vers[*]}"
   echo "Running release script"
-  ./shared/release.sh "${vers[*]}"
+  ./shared/release.sh "${vers[@]}"
 else
   echo "No new version updates"
   exit 0
