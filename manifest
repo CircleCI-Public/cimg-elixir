@@ -7,3 +7,4 @@ namespace=cimg
 parentTags=(24.3.3 25.3)
 defaultParentTag=25.3
 parentSlug=erlang
+arm64=1
