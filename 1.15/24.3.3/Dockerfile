@@ -6,9 +6,7 @@
 # specific reason to use a different one. This means January, April, July, or
 # October.
 
-# Erlang version 23.3 does not support OpenSSL3, which means only for this specific version do we need to use 20.04. Please adjust accordingly
-
-FROM cimg/base:2023.07-20.04
+FROM cimg/base:2023.07
 
 LABEL maintainer="Community & Partner Engineering Team <community-partner@circleci.com>"
 
@@ -19,7 +17,8 @@ RUN sudo apt-get update && sudo apt-get install -y --no-install-recommends \
 		libodbc1 \
 		libsctp1 \
 		libwxgtk3.0 && \
-	erlangDEB="https://packages.erlang-solutions.com/erlang/debian/pool/esl-erlang_${ERLANG_VERSION}-1~ubuntu~focal_amd64.deb" && \
+	[[ $(uname -m) == "x86_64" ]] && ARCH="amd64" || ARCH="arm64" && \
+	erlangDEB="https://packages.erlang-solutions.com/erlang/debian/pool/esl-erlang_${ERLANG_VERSION}-1~ubuntu~focal_${ARCH}.deb" && \
 	curl -sSL -o erlang.deb $erlangDEB && \
 	sudo dpkg -i erlang.deb && \
 	sudo rm -rf erlang.deb /var/lib/apt/lists/*
