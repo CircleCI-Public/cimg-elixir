@@ -17,7 +17,8 @@ RUN sudo apt-get update && sudo apt-get install -y --no-install-recommends \
 		libodbc1 \
 		libsctp1 \
 		libwxgtk3.0 && \
-	erlangDEB="https://packages.erlang-solutions.com/erlang/debian/pool/esl-erlang_${ERLANG_VERSION}-1~ubuntu~focal_amd64.deb" && \
+	[[ $(uname -m) == "x86_64" ]] && ARCH="amd64" || ARCH="arm64" && \
+	erlangDEB="https://packages.erlang-solutions.com/erlang/debian/pool/esl-erlang_${ERLANG_VERSION}-1~ubuntu~focal_${ARCH}.deb" && \
 	curl -sSL -o erlang.deb $erlangDEB && \
 	sudo dpkg -i erlang.deb && \
 	sudo rm -rf erlang.deb /var/lib/apt/lists/*
