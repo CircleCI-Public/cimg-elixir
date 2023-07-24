@@ -11,7 +11,7 @@ FROM cimg/base:2023.07
 LABEL maintainer="Community & Partner Engineering Team <community-partner@circleci.com>"
 
 # Install Erlang via Erlang Solutions' .deb
-ENV ERLANG_VERSION="25.3"
+ENV ERLANG_VERSION="24.3.4"
 RUN sudo apt-get update && sudo apt-get install -y --no-install-recommends \
 		libncurses5 \
 		libodbc1 \
