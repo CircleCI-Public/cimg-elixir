@@ -11,13 +11,14 @@ FROM cimg/base:2023.07-20.04
 LABEL maintainer="Community & Partner Engineering Team <community-partner@circleci.com>"
 
 # Install Erlang via Erlang Solutions' .deb
-ENV ERLANG_VERSION="24.3.3"
+ENV ERLANG_VERSION="24.3.4"
 RUN sudo apt-get update && sudo apt-get install -y --no-install-recommends \
 		libncurses5 \
 		libodbc1 \
 		libsctp1 \
 		libwxgtk3.0 && \
-	erlangDEB="https://packages.erlang-solutions.com/erlang/debian/pool/esl-erlang_${ERLANG_VERSION}-1~ubuntu~focal_amd64.deb" && \
+	# Erlang 24 is the last version to support only focal. Moving forward, the base image can move to 22.04 Jammy
+	erlangDEB="https://binaries2.erlang-solutions.com/ubuntu/pool/contrib/e/esl-erlang/esl-erlang_${ERLANG_VERSION}-1~ubuntu~focal_amd64.deb" && \
 	curl -sSL -o erlang.deb $erlangDEB && \
 	sudo dpkg -i erlang.deb && \
 	sudo rm -rf erlang.deb /var/lib/apt/lists/*
