@@ -6,12 +6,12 @@
 # specific reason to use a different one. This means January, April, July, or
 # October.
 
-FROM cimg/%%PARENT%%:2024.01-20.04
+FROM cimg/base:2024.01-20.04
 
 LABEL maintainer="CircleCI Execution Team <eng-execution@circleci.com>"
 
 # Install Erlang via Erlang Solutions' .deb
-ENV ERLANG_VERSION="%%PARENT_TAG%%"
+ENV ERLANG_VERSION="26.2.1"
 RUN sudo apt-get update && sudo apt-get install -y --no-install-recommends \
 		libncurses5 \
 		libodbc1 \
@@ -24,7 +24,7 @@ RUN sudo apt-get update && sudo apt-get install -y --no-install-recommends \
 	sudo rm -rf erlang.deb /var/lib/apt/lists/*
 
 # Install Elixir via Erlang Solutions' .deb
-ENV ELIXIR_VERSION=%%VERSION_FULL%%
+ENV ELIXIR_VERSION=1.16.0
 RUN ELIXIR_DOWNLOAD_URL="https://github.com/elixir-lang/elixir/archive/v${ELIXIR_VERSION}.tar.gz" && \
 	curl -fSL -o elixir-src.tar.gz $ELIXIR_DOWNLOAD_URL && \
 	sudo mkdir -p /usr/local/src/elixir && \
