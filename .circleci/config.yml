@@ -12,9 +12,10 @@ parameters:
 workflows:
   automated-wf:
       when: << pipeline.parameters.cron >>
-      - cimg/update:
-          update-script: elixirFeed.sh
-          context:
+      jobs:
+        - cimg/update:
+            update-script: elixirFeed.sh
+            context:
               - cpe-image-bot-github-creds
   main-wf:
     when:
