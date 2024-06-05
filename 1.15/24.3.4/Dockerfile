@@ -6,9 +6,9 @@
 # specific reason to use a different one. This means January, April, July, or
 # October.
 
-FROM cimg/base:2023.07-20.04
+FROM cimg/base:2024.01-20.04
 
-LABEL maintainer="Community & Partner Engineering Team <community-partner@circleci.com>"
+LABEL maintainer="CircleCI Execution Team <eng-execution@circleci.com>"
 
 # Install Erlang via Erlang Solutions' .deb
 ENV ERLANG_VERSION="24.3.4"
