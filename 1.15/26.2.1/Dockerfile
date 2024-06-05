@@ -6,7 +6,7 @@
 # specific reason to use a different one. This means January, April, July, or
 # October.
 
-FROM cimg/base:2024.01-20.04
+FROM cimg/base:2024.06-20.04
 
 LABEL maintainer="CircleCI Execution Team <eng-execution@circleci.com>"
 
