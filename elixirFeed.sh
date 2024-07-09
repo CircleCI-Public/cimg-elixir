@@ -9,6 +9,20 @@ else
   exit 1
 fi
 
+# Keep a record of the min / "max" supported Erlang/OTP versions for each release of Elixir
+# e.g. https://hexdocs.pm/elixir/1.17.0/compatibility-and-deprecations.html#between-elixir-and-erlang-otp
+declare -A minSupportedErlang
+minSupportedErlang["1.17"]="25"
+minSupportedErlang["1.16"]="24"
+minSupportedErlang["1.15"]="24"
+minSupportedErlang["1.14"]="23"
+
+declare -A maxSupportedErlang
+maxSupportedErlang["1.17"]="27"
+maxSupportedErlang["1.16"]="26"
+maxSupportedErlang["1.15"]="26"
+maxSupportedErlang["1.14"]="26" # from 1.14.5
+
 # We keep three major Erlang versions at all times and we want to make sure the latest
 # version is included, so we source the manifest for the parentTag
 source manifest
@@ -29,6 +43,7 @@ getElixirVersion() {
       directoryCheck "$majorMinor" "$SEARCH_TERM"
 
       if [[ $(eval echo $?) == 0 ]]; then
+
         generateVersionString "$newVersion"
       fi
     fi
