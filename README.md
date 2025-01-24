@@ -184,6 +184,10 @@ docker build -t test/elixir:1.10.2-erlang-24.3 .
 docker run -it test/elixir:1.10.2-erlang-24.3 bash
 ```
 
+## Elixir Feed
+
+Each execution of this script will update the required Dockerfile to the next version, and will generate a build-images.sh and push-images.sh script to build and push these Dockerfiles.
+These scripts will build and push a tag for each version from the one in the Dockerfile, to the latest, so in case the current one is no the latest, wrong images will be created for versions that are not the current, this can be solved running the feed again, which will update the Dockerfile to the next version, and will delete the previous tag from the build and push scripts. Doing this as many times as new versions are, will guarantee all tags have the proper version installed. If you stop running the script previous to get to the latest version, the newer versions will have installed the version where you stopped.
 
 ### Building the Dockerfiles
 

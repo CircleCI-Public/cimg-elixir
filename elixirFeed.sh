@@ -38,12 +38,16 @@ getElixirVersion() {
   for version in $VERSIONS; do
     if [[ $version =~ ^v[0-9]+(\.[0-9]+)*$ ]]; then
       generateVersions "$(cut -d 'v' -f2 <<< "${version}")"
-      echo $newVersions hi
-      generateSearchTerms "ELIXIR_VERSION=" "$majorMinor/${parentTags[2]}/Dockerfile"
+      echo $newVersion hi
+      #This looks for the ELIXIR_VERSION version on the current Dockerfile and export it as SEARCH_TERM
+      generateSearchTerms "ELIXIR_VERSION=" "$majorMinor/${parentTags[-1]}/Dockerfile"
+      echo "Search term is: $SEARCH_TERM"
+      # This compares the version on the Dockerfile with the directory version
       directoryCheck "$majorMinor" "$SEARCH_TERM"
 
+      # This condition only happens when the version in the docker file is less than the version of the loop
       if [[ $(eval echo $?) == 0 ]]; then
-
+        echo "Condition met with $version"
         generateVersionString "$newVersion"
       fi
     fi
