@@ -11,7 +11,7 @@ FROM cimg/base:2024.06-20.04
 LABEL maintainer="CircleCI Execution Team <eng-execution@circleci.com>"
 
 # Install Erlang via Erlang Solutions' .deb
-ENV ERLANG_VERSION="25.3.2"
+ENV ERLANG_VERSION="27.2.1"
 RUN sudo apt-get update && sudo apt-get install -y --no-install-recommends \
 		libncurses5 \
 		libodbc1 \
@@ -24,7 +24,7 @@ RUN sudo apt-get update && sudo apt-get install -y --no-install-recommends \
 	sudo rm -rf erlang.deb /var/lib/apt/lists/*
 
 # Install Elixir via Erlang Solutions' .deb
-ENV ELIXIR_VERSION=1.18.1
+ENV ELIXIR_VERSION=1.17.2
 RUN ELIXIR_DOWNLOAD_URL="https://github.com/elixir-lang/elixir/archive/v${ELIXIR_VERSION}.tar.gz" && \
 	curl -fSL -o elixir-src.tar.gz $ELIXIR_DOWNLOAD_URL && \
 	sudo mkdir -p /usr/local/src/elixir && \
