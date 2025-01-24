@@ -1,6 +1,6 @@
 # vim:set ft=dockerfile:
 
-FROM cimg/elixir:1.17.0-erlang-26.2.1
+FROM cimg/elixir:1.18.0-erlang-27.2.1
 
 LABEL maintainer="Community & Partner Engineering Team <community-partner@circleci.com>"
 
