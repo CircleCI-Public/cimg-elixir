@@ -218,7 +218,7 @@ To make a proper release for this image, let's use the fake elixir version of v9
 
 This will automatically create a new Git branch, generate the Dockerfile(s), stage the changes, commit them, and push them to GitHub.
 The commit message will end with the string `[release]`.
-This string is used by CircleCI to know when to push images to Docker Hub.
+This string is used by CircleCI to know when to push images to Docker Hub. When `[release]` is not part of the commit message, it won't publish anything.
 All that would need to be done after that is:
 
 - wait for build to pass on CircleCI
