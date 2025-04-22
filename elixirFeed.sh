@@ -30,9 +30,9 @@ maxSupportedErlang["1.14"]="26" # from 1.14.5
 source manifest
 
 getElixirVersion() {
-  RSS_URL="https://github.com/elixir-lang/elixir/tags.atom"
-  VERSIONS=$(curl --silent "$RSS_URL" | grep -E '(title)' | tail -n +2 | sed -e 's/^[ \t]*//' | sed -e 's/<title>//' -e 's/<\/title>//')
-
+  # RSS_URL="https://github.com/elixir-lang/elixir/tags.atom"
+  # VERSIONS=$(curl --silent "$RSS_URL" | grep -E '(title)' | tail -n +2 | sed -e 's/^[ \t]*//' | sed -e 's/<title>//' -e 's/<\/title>//')
+  VERSIONS=("1.17.3" "1.18.2")
   # A minor version is released every 6 months, meaning we do not need to concern ourselves
   # with multiple mainline versions like node e.g 16, 18, 19, therefore, we are a bit more
   # confident knowing that the latest version will be the first version parsed
