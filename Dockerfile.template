@@ -6,19 +6,30 @@
 # specific reason to use a different one. This means January, April, July, or
 # October.
 
-FROM cimg/%%PARENT%%:2024.06-20.04
+FROM cimg/%%PARENT%%:%%BASE_VERSION%%
 
 LABEL maintainer="CircleCI Execution Team <eng-execution@circleci.com>"
 
 # Install Erlang via Erlang Solutions' .deb
 ENV ERLANG_VERSION="%%PARENT_TAG%%"
-RUN sudo apt-get update && sudo apt-get install -y --no-install-recommends \
-		libncurses5 \
-		libodbc1 \
-		libsctp1 \
-		libwxgtk3.0 && \
-	# Erlang 24 is the last version to support only focal. Moving forward, the base image can move to 22.04
-	erlangDEB="https://binaries2.erlang-solutions.com/ubuntu/pool/contrib/e/esl-erlang/esl-erlang_${ERLANG_VERSION}-1~ubuntu~focal_amd64.deb" && \
+RUN BASE_MAJOR_VERSION=$(echo "%%BASE_VERSION%%" | cut -d '.' -f 1) && \
+	BASE_MINOR_VERSION=$(echo "%%BASE_VERSION%%" | cut -d '.' -f 2) && \
+	# For ubuntu 24 the package and the dependencies are differents
+	if [ "$BASE_MAJOR_VERSION" -ge "2025" ] && [ "$BASE_MINOR_VERSION" -ge "07" ]; then \
+		sudo apt-get update && sudo apt-get install -y --no-install-recommends \
+			libncurses-dev \
+			libodbc2 \
+			libsctp1 \
+			libwxgtk3.0; \
+		erlangDEB="https://binaries2.erlang-solutions.com/ubuntu/pool/contrib/e/esl-erlang/esl-erlang_${ERLANG_VERSION}-1~ubuntu~noble_amd64.deb"; \
+	else \
+		sudo apt-get update && sudo apt-get install -y --no-install-recommends \
+			libncurses5 \
+			libodbc1 \
+			libsctp1 \
+			libwxgtk3.0; \
+		erlangDEB="https://binaries2.erlang-solutions.com/ubuntu/pool/contrib/e/esl-erlang/esl-erlang_${ERLANG_VERSION}-1~ubuntu~focal_amd64.deb"; \
+	fi \
 	curl -sSL -o erlang.deb $erlangDEB && \
 	sudo dpkg -i erlang.deb && \
 	sudo rm -rf erlang.deb /var/lib/apt/lists/*

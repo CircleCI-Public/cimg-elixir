@@ -12,6 +12,7 @@ fi
 # Keep a record of the min / "max" supported Erlang/OTP versions for each release of Elixir
 # e.g. https://hexdocs.pm/elixir/1.17.0/compatibility-and-deprecations.html#between-elixir-and-erlang-otp
 declare -A minSupportedErlang
+minSupportedErlang["1.19"]="26"
 minSupportedErlang["1.18"]="25"
 minSupportedErlang["1.17"]="25"
 minSupportedErlang["1.16"]="24"
@@ -19,6 +20,7 @@ minSupportedErlang["1.15"]="24"
 minSupportedErlang["1.14"]="23"
 
 declare -A maxSupportedErlang
+maxSupportedErlang["1.19"]="28"
 maxSupportedErlang["1.18"]="27"
 maxSupportedErlang["1.17"]="27"
 maxSupportedErlang["1.16"]="26"
