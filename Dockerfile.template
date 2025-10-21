@@ -29,7 +29,7 @@ RUN BASE_MAJOR_VERSION=$(echo "%%BASE_VERSION%%" | cut -d '.' -f 1) && \
 			libsctp1 \
 			libwxgtk3.0; \
 		erlangDEB="https://binaries2.erlang-solutions.com/ubuntu/pool/contrib/e/esl-erlang/esl-erlang_${ERLANG_VERSION}-1~ubuntu~focal_amd64.deb"; \
-	fi \
+	fi && \
 	curl -sSL -o erlang.deb $erlangDEB && \
 	sudo dpkg -i erlang.deb && \
 	sudo rm -rf erlang.deb /var/lib/apt/lists/*
