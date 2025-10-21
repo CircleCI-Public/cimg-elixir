@@ -11,7 +11,7 @@ FROM cimg/base:2024.06-20.04
 LABEL maintainer="CircleCI Execution Team <eng-execution@circleci.com>"
 
 # Install Erlang via Erlang Solutions' .deb
-ENV ERLANG_VERSION="26.2.1"
+ENV ERLANG_VERSION="27.3.3"
 RUN BASE_MAJOR_VERSION=$(echo "2024.06-20.04" | cut -d '.' -f 1) && \
 	BASE_MINOR_VERSION=$(echo "2024.06-20.04" | cut -d '.' -f 2) && \
 	# For ubuntu 24 the package and the dependencies are differents

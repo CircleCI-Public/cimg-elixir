@@ -6,14 +6,14 @@
 # specific reason to use a different one. This means January, April, July, or
 # October.
 
-FROM cimg/base:2024.06-20.04
+FROM cimg/base:2025.10
 
 LABEL maintainer="CircleCI Execution Team <eng-execution@circleci.com>"
 
 # Install Erlang via Erlang Solutions' .deb
-ENV ERLANG_VERSION="26.2.1"
-RUN BASE_MAJOR_VERSION=$(echo "2024.06-20.04" | cut -d '.' -f 1) && \
-	BASE_MINOR_VERSION=$(echo "2024.06-20.04" | cut -d '.' -f 2) && \
+ENV ERLANG_VERSION="27.3.3"
+RUN BASE_MAJOR_VERSION=$(echo "2025.10" | cut -d '.' -f 1) && \
+	BASE_MINOR_VERSION=$(echo "2025.10" | cut -d '.' -f 2) && \
 	# For ubuntu 24 the package and the dependencies are differents
 	if [ "$BASE_MAJOR_VERSION" -ge "2025" ] && [ "$BASE_MINOR_VERSION" -ge "07" ]; then \
 		sudo apt-get update && sudo apt-get install -y --no-install-recommends \
@@ -35,7 +35,7 @@ RUN BASE_MAJOR_VERSION=$(echo "2024.06-20.04" | cut -d '.' -f 1) && \
 	sudo rm -rf erlang.deb /var/lib/apt/lists/*
 
 # Install Elixir via Erlang Solutions' .deb
-ENV ELIXIR_VERSION=1.18.3
+ENV ELIXIR_VERSION=1.19.0
 RUN ELIXIR_DOWNLOAD_URL="https://github.com/elixir-lang/elixir/archive/v${ELIXIR_VERSION}.tar.gz" && \
 	curl -fSL -o elixir-src.tar.gz $ELIXIR_DOWNLOAD_URL && \
 	sudo mkdir -p /usr/local/src/elixir && \
