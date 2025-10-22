@@ -15,19 +15,14 @@ ENV ERLANG_VERSION="%%PARENT_TAG%%"
 RUN BASE_MAJOR_VERSION=$(echo "%%BASE_VERSION%%" | cut -d '.' -f 1) && \
 	BASE_MINOR_VERSION=$(echo "%%BASE_VERSION%%" | cut -d '.' -f 2) && \
 	# For ubuntu 24 the package and the dependencies are differents
-	if [ "$BASE_MAJOR_VERSION" -ge "2025" ] && [ "$BASE_MINOR_VERSION" -ge "07" ]; then \
-		sudo apt-get update && sudo apt-get install -y --no-install-recommends \
-			libncurses-dev \
-			libodbc2 \
-			libsctp1 \
-			libwxgtk3.0; \
-		erlangDEB="https://binaries2.erlang-solutions.com/ubuntu/pool/contrib/e/esl-erlang/esl-erlang_${ERLANG_VERSION}-1~ubuntu~noble_amd64.deb"; \
-	else \
-		sudo apt-get update && sudo apt-get install -y --no-install-recommends \
+	sudo apt-get update && sudo apt-get install -y --no-install-recommends \
 			libncurses5 \
 			libodbc1 \
 			libsctp1 \
-			libwxgtk3.0; \
+			libwxgtk3.0 && \
+	if [ "$BASE_MAJOR_VERSION" != "2024" ]; then \
+		erlangDEB="https://binaries2.erlang-solutions.com/ubuntu/pool/contrib/e/esl-erlang/esl-erlang_${ERLANG_VERSION}-1~ubuntu~jammy_amd64.deb"; \
+	else \
 		erlangDEB="https://binaries2.erlang-solutions.com/ubuntu/pool/contrib/e/esl-erlang/esl-erlang_${ERLANG_VERSION}-1~ubuntu~focal_amd64.deb"; \
 	fi && \
 	curl -sSL -o erlang.deb $erlangDEB && \
