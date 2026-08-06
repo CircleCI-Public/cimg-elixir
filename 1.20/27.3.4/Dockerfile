@@ -55,7 +55,7 @@ RUN sudo apt-get update && sudo apt-get install -y --no-install-recommends \
 	cat /usr/local/lib/erlang/releases/*/OTP_VERSION
 
 # Install Elixir from source
-ENV ELIXIR_VERSION=1.20.1
+ENV ELIXIR_VERSION=1.20.2
 RUN ELIXIR_DOWNLOAD_URL="https://github.com/elixir-lang/elixir/archive/v${ELIXIR_VERSION}.tar.gz" && \
 	curl -fSL -o elixir-src.tar.gz $ELIXIR_DOWNLOAD_URL && \
 	sudo mkdir -p /usr/local/src/elixir && \
