@@ -6,12 +6,12 @@
 # specific reason to use a different one. This means January, April, July, or
 # October.
 
-FROM cimg/base:2026.08
+FROM cimg/base:2026.08-22.04
 
 LABEL maintainer="CircleCI Execution Team <eng-execution@circleci.com>"
 
 # Install Erlang/OTP from the official source release published on GitHub.
-ENV ERLANG_VERSION="27.3.4"
+ENV ERLANG_VERSION="29.0.5"
 RUN sudo apt-get update && sudo apt-get install -y --no-install-recommends \
 			autoconf \
 			build-essential \
@@ -55,7 +55,7 @@ RUN sudo apt-get update && sudo apt-get install -y --no-install-recommends \
 	cat /usr/local/lib/erlang/releases/*/OTP_VERSION
 
 # Install Elixir from source
-ENV ELIXIR_VERSION=1.20.4
+ENV ELIXIR_VERSION=1.19.6
 RUN ELIXIR_DOWNLOAD_URL="https://github.com/elixir-lang/elixir/archive/v${ELIXIR_VERSION}.tar.gz" && \
 	curl -fSL -o elixir-src.tar.gz $ELIXIR_DOWNLOAD_URL && \
 	sudo mkdir -p /usr/local/src/elixir && \
