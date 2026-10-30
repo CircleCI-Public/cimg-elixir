@@ -11,7 +11,7 @@ FROM cimg/base:2026.10-22.04
 LABEL maintainer="CircleCI Execution Team <eng-execution@circleci.com>"
 
 # Install Erlang/OTP from the official source release published on GitHub.
-ENV ERLANG_VERSION="27.3.4"
+ENV ERLANG_VERSION="27.3.4.19"
 RUN sudo apt-get update && sudo apt-get install -y --no-install-recommends \
 			autoconf \
 			build-essential \
