@@ -7,6 +7,9 @@ namespace=cimg
 base_version=2026.10-22.04
 new_version=2026.10
 new_tags=(1.20)
-parentTags=(27.3.4 28.5.0 29.0.5)
-defaultParentTag=29.0.5
+parentTags=(27.3.4 28.5.0 29.1.2)
+# The exact Erlang/OTP release built for each parentTag above, in the same order. Patch releases
+# (e.g. 28.5.0.8) reuse their parentTag's directory and image tags
+erlangVersions=(27.3.4.19 28.5.0.8 29.1.2)
+defaultParentTag=29.1.2
 parentSlug=erlang
