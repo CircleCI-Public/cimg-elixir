@@ -13,22 +13,22 @@ docker push cimg/elixir:1.20-erlang-28.5.0-node
 docker push cimg/elixir:1.20.5-erlang-28.5.0-node
 docker push cimg/elixir:1.20-erlang-28.5.0-browsers
 docker push cimg/elixir:1.20.5-erlang-28.5.0-browsers
-docker push cimg/elixir:1.20-erlang-29.1.2
-docker push cimg/elixir:1.20.5-erlang-29.1.2
-docker tag cimg/elixir:1.20.5-erlang-29.1.2 cimg/elixir:1.20.5
-docker tag cimg/elixir:1.20-erlang-29.1.2 cimg/elixir:1.20
+docker push cimg/elixir:1.20-erlang-29.1.3
+docker push cimg/elixir:1.20.5-erlang-29.1.3
+docker tag cimg/elixir:1.20.5-erlang-29.1.3 cimg/elixir:1.20.5
+docker tag cimg/elixir:1.20-erlang-29.1.3 cimg/elixir:1.20
 docker push cimg/elixir:1.20
 docker push cimg/elixir:1.20.5
-docker push cimg/elixir:1.20-erlang-29.1.2-node
-docker push cimg/elixir:1.20.5-erlang-29.1.2-node
-docker tag cimg/elixir:1.20.5-erlang-29.1.2-node cimg/elixir:1.20.5-node
-docker tag cimg/elixir:1.20-erlang-29.1.2-node cimg/elixir:1.20-node
+docker push cimg/elixir:1.20-erlang-29.1.3-node
+docker push cimg/elixir:1.20.5-erlang-29.1.3-node
+docker tag cimg/elixir:1.20.5-erlang-29.1.3-node cimg/elixir:1.20.5-node
+docker tag cimg/elixir:1.20-erlang-29.1.3-node cimg/elixir:1.20-node
 docker push cimg/elixir:1.20-node
 docker push cimg/elixir:1.20.5-node
-docker push cimg/elixir:1.20-erlang-29.1.2-browsers
-docker push cimg/elixir:1.20.5-erlang-29.1.2-browsers
-docker tag cimg/elixir:1.20.5-erlang-29.1.2-browsers cimg/elixir:1.20.5-browsers
-docker tag cimg/elixir:1.20-erlang-29.1.2-browsers cimg/elixir:1.20-browsers
+docker push cimg/elixir:1.20-erlang-29.1.3-browsers
+docker push cimg/elixir:1.20.5-erlang-29.1.3-browsers
+docker tag cimg/elixir:1.20.5-erlang-29.1.3-browsers cimg/elixir:1.20.5-browsers
+docker tag cimg/elixir:1.20-erlang-29.1.3-browsers cimg/elixir:1.20-browsers
 docker push cimg/elixir:1.20-browsers
 docker push cimg/elixir:1.20.5-browsers
 docker push cimg/elixir:1.19-erlang-27.3.4
