@@ -8,9 +8,9 @@ docker build --file 1.20/27.3.4/browsers/Dockerfile -t cimg/elixir:1.20.5-erlang
 docker build --file 1.20/28.5.0/Dockerfile -t cimg/elixir:1.20.5-erlang-28.5.0 -t cimg/elixir:1.20-erlang-28.5.0 --platform linux/amd64 --push .
 docker build --file 1.20/28.5.0/node/Dockerfile -t cimg/elixir:1.20.5-erlang-28.5.0-node -t cimg/elixir:1.20-erlang-28.5.0-node --platform linux/amd64 --push .
 docker build --file 1.20/28.5.0/browsers/Dockerfile -t cimg/elixir:1.20.5-erlang-28.5.0-browsers -t cimg/elixir:1.20-erlang-28.5.0-browsers --platform linux/amd64 --push .
-docker build --file 1.20/29.1.2/Dockerfile -t cimg/elixir:1.20.5-erlang-29.1.2 -t cimg/elixir:1.20-erlang-29.1.2 --platform linux/amd64 --push .
-docker build --file 1.20/29.1.2/node/Dockerfile -t cimg/elixir:1.20.5-erlang-29.1.2-node -t cimg/elixir:1.20-erlang-29.1.2-node --platform linux/amd64 --push .
-docker build --file 1.20/29.1.2/browsers/Dockerfile -t cimg/elixir:1.20.5-erlang-29.1.2-browsers -t cimg/elixir:1.20-erlang-29.1.2-browsers --platform linux/amd64 --push .
+docker build --file 1.20/29.1.3/Dockerfile -t cimg/elixir:1.20.5-erlang-29.1.3 -t cimg/elixir:1.20-erlang-29.1.3 --platform linux/amd64 --push .
+docker build --file 1.20/29.1.3/node/Dockerfile -t cimg/elixir:1.20.5-erlang-29.1.3-node -t cimg/elixir:1.20-erlang-29.1.3-node --platform linux/amd64 --push .
+docker build --file 1.20/29.1.3/browsers/Dockerfile -t cimg/elixir:1.20.5-erlang-29.1.3-browsers -t cimg/elixir:1.20-erlang-29.1.3-browsers --platform linux/amd64 --push .
 docker build --file 1.19/27.3.4/Dockerfile -t cimg/elixir:1.19.7-erlang-27.3.4 -t cimg/elixir:1.19-erlang-27.3.4 --platform linux/amd64 --push .
 docker build --file 1.19/27.3.4/node/Dockerfile -t cimg/elixir:1.19.7-erlang-27.3.4-node -t cimg/elixir:1.19-erlang-27.3.4-node --platform linux/amd64 --push .
 docker build --file 1.19/27.3.4/browsers/Dockerfile -t cimg/elixir:1.19.7-erlang-27.3.4-browsers -t cimg/elixir:1.19-erlang-27.3.4-browsers --platform linux/amd64 --push .

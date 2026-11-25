@@ -6,12 +6,12 @@
 # specific reason to use a different one. This means January, April, July, or
 # October.
 
-FROM cimg/base:2026.10
+FROM cimg/base:2026.11
 
 LABEL maintainer="CircleCI Execution Team <eng-execution@circleci.com>"
 
 # Install Erlang/OTP from the official source release published on GitHub.
-ENV ERLANG_VERSION="28.5.0.8"
+ENV ERLANG_VERSION="28.5.0.9"
 RUN sudo apt-get update && sudo apt-get install -y --no-install-recommends \
 			autoconf \
 			build-essential \
